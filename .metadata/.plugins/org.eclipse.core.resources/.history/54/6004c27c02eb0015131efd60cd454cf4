@@ -1,0 +1,6 @@
+package Beverages;
+
+public abstract class Condiments implements Item{
+	@Override
+	public abstract float price();
+}

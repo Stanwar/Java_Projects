@@ -1,0 +1,12 @@
+package Beverages;
+/*
+ * Interface to be extended for each Item/Ingredient 
+ * */
+public interface Ingredient {
+	
+		// Name of Item
+		public String name();
+		// Cost of the Item
+		public float price();
+	
+}

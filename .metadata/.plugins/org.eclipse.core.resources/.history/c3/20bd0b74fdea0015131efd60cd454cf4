@@ -1,0 +1,23 @@
+package Beverages;
+
+import java.util.HashMap;
+
+public class CaffeeAmericano {
+	
+	private HashMap<String, Integer> ingredientList;
+	public CaffeeAmericano(){
+		ingredientList = new HashMap<String, Integer>();
+	}
+	public void prepareCaffeeAmericano(){
+		Drink drink = new Drink();
+		drink.addIngredient(new Expresso());
+		drink.addIngredient(new Expresso());
+		drink.addIngredient(new Expresso());
+	}
+	
+	public boolean getStatus(DrinkMaker drinkMaker){
+		
+		drinkMaker.
+		return false;
+	}
+}

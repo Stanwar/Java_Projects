@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="Beverages.Sugar"/>
+<fullyQualifiedTypeName name="Beverages.CaffeeLatte"/>
+<fullyQualifiedTypeName name="Beverages.CaffeeMocha"/>
+<fullyQualifiedTypeName name="Beverages.Cappuccino"/>
+<fullyQualifiedTypeName name="Beverages.CaffeeAmericano"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Beverages.FoamedMilk"/>
+<fullyQualifiedTypeName name="Beverages.Cocoa"/>
+<fullyQualifiedTypeName name="Beverages.Expresso"/>
+<fullyQualifiedTypeName name="Beverages.WhippedCream"/>
+<fullyQualifiedTypeName name="Beverages.SteamedMilk"/>
+<fullyQualifiedTypeName name="Beverages.DecafCoffee"/>
+<fullyQualifiedTypeName name="Beverages.Coffee"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+<fullyQualifiedTypeName name="java.lang.Enum"/>
+<fullyQualifiedTypeName name="java.util.EnumSet"/>
+<fullyQualifiedTypeName name="java.util.Currency"/>
+<fullyQualifiedTypeName name="Beverages.InventoryManager"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Constructor"/>
+<fullyQualifiedTypeName name="Beverages.DrinkMaker"/>
+<fullyQualifiedTypeName name="Beverages.DrinkMaker.Drinks"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+<fullyQualifiedTypeName name="java.text.NumberFormat"/>
+<fullyQualifiedTypeName name="Beverages.DrinksMachine.Drinks"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.TreeMap"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+</qualifiedTypeNameHistroy>

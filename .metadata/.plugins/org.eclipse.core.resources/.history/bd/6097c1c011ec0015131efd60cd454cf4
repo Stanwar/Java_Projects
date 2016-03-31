@@ -1,0 +1,12 @@
+package Beverages;
+/*
+ * Interface to be implemented by different abstract class for various types of ingredient. 
+ * Any concrete implementation will have to implement these features.  
+ * */
+public interface Ingredient {
+		// Name of Ingredient
+		public String name();
+		// Cost of the Ingrediemt
+		public float price();
+	
+}

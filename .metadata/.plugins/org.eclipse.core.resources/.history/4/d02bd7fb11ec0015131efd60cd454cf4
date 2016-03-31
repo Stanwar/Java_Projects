@@ -1,0 +1,6 @@
+package Beverages;
+
+public abstract class BaseCoffees implements Ingredient{
+	@Override
+	public abstract float price();
+}

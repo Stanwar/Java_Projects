@@ -1,0 +1,8 @@
+package Beverages;
+
+public class InventoryManager {
+
+	//Stock/Restock ingredients
+	
+	//Update incredients for each drink
+}

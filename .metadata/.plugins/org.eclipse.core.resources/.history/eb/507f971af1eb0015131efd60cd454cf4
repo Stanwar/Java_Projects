@@ -1,0 +1,25 @@
+package Beverages;
+
+import java.util.HashMap;
+
+public class DrinkMachine {
+	// Keep inventory here
+	// Based on your drink update inventory
+	// get status of drink 
+	private HashMap<String, Integer> inventory;
+		
+	//Restocking ingredients in the inventory.
+	public void restockIngredients(){
+		
+		inventory.put(new Cocoa().name(), 10);
+		inventory.put(new Coffee().name(), 10);
+		inventory.put(new Cream().name(), 10);
+		inventory.put(new DecafCoffee().name(), 10);
+		inventory.put(new Expresso().name(), 10);
+		inventory.put(new FoamedMilk().name(), 10);
+		inventory.put(new SteamedMilk().name(), 10);
+		inventory.put(new Sugar().name(), 10);
+		inventory.put(new WhippedCream().name(), 10);
+		
+	}
+}

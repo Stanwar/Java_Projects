@@ -1,0 +1,45 @@
+package Beverages;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Drink {
+	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
+	
+	public void addIngredient(Ingredient ingredient){
+		ingredients.add(ingredient);
+	}
+	
+	public float getTotalCost(){
+		float cost = 0.00f;
+		//Add cost for each ingredient
+		for(Ingredient ingredient : ingredients){
+			cost = cost + ingredient.price();
+		}
+		// Returning Total Cost 
+		return cost;
+	}
+	
+//	public Drink reduceInventory(){
+//		Drink drink = new Drink();
+//		
+//		// Get Ingredient List for the Drink 
+//		ArrayList<String> ingredientArr = drinkIngredient.get(drinkName);
+//		
+//		return drink;
+//	}
+	
+//	public boolean getStatus(){
+//		
+//		for(Ingredient ingredient : ingredients){
+//			//System.out.println(ingredient.name());
+//			//System.out.println()
+//			if(!InventoryManager.ingredientStatus.get(ingredient.name())){
+//				return false;
+//			}
+//		}
+//		
+//		return true;
+//	}
+}

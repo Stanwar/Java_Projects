@@ -1,0 +1,14 @@
+package Beverages;
+
+public abstract class Drinks {
+	String name;
+	abstract void prepare();
+	
+	void setName(String name){
+		this.name = name;
+	}
+	
+	String getName(){
+		return name;
+	}
+}

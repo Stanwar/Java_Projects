@@ -1,0 +1,18 @@
+package Beverages;
+
+public class Cocoa extends Condiments{
+	//Default number as 10
+	private int number =10;
+	@Override
+	public float price(){
+		return 0.90f;
+	}
+	@Override
+	public String name(){
+		return "Cocoa";
+	}
+	@Override
+	public void setQuantity(int number){
+		this.number = number;
+	}
+}

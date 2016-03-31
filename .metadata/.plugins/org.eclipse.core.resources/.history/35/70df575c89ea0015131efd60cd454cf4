@@ -1,0 +1,29 @@
+package Beverages;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Drink {
+	private List<Item> ingredients = new ArrayList<Item>();
+	
+	public void addIngredient(Item item){
+		ingredients.add(item);
+	}
+	
+	public float getTotalCost(){
+		float cost = 0.00f;
+		//Add cost for each ingredient
+		for(Item item : ingredients){
+			cost += item.price();
+		}
+		// Returning Total Cost 
+		return cost;
+	}
+	
+	public boolean getStatus(){
+		
+		return false;
+	}
+}

@@ -1,0 +1,66 @@
+package Beverages;
+
+import java.util.HashMap;
+
+public class InventoryManager {
+
+	// Only have one copy of the inventory 
+	public static HashMap<String, Integer> inventory = new HashMap<String, Integer>();
+	public static HashMap<String, Boolean> ingredientStatus = new HashMap<String, Boolean>();
+
+	// Made constructor private
+	private InventoryManager(){
+		 
+	}
+	
+	//Update ingredient in inventory
+	public static void reduceIngredient(Ingredient ingredient){
+		int quantity = inventory.get(ingredient.name());
+		
+		if(quantity > 0){
+			inventory.put(ingredient.name(),inventory.get(ingredient.name())-1);
+		}else{
+			ingredientStatus.put(ingredient.name(), false);
+		}
+		
+	}
+	
+	//Stock/Restock
+	public static void loadInventory(){
+		inventory.put(new Cocoa().name(), 10);
+		inventory.put(new Coffee().name(), 10);
+		inventory.put(new Cream().name(), 10);
+		inventory.put(new DecafCoffee().name(), 10);
+		inventory.put(new Expresso().name(), 10);
+		inventory.put(new FoamedMilk().name(), 10);
+		inventory.put(new SteamedMilk().name(), 10);
+		inventory.put(new Sugar().name(), 10);
+		inventory.put(new WhippedCream().name(), 10);
+		
+		//////
+		ingredientStatus.put(new Cocoa().name(), true);
+		ingredientStatus.put(new Coffee().name(), true);
+		ingredientStatus.put(new Cream().name(), true);
+		ingredientStatus.put(new DecafCoffee().name(), true);
+		ingredientStatus.put(new Expresso().name(), true);
+		ingredientStatus.put(new FoamedMilk().name(), true);
+		ingredientStatus.put(new SteamedMilk().name(), true);
+		ingredientStatus.put(new Sugar().name(), true);
+		ingredientStatus.put(new Sugar().name(), true);
+		
+	}
+	// Display Ingredient Quantities
+	public static void ingredientList(){
+		System.out.println("Inventory:");
+		
+		System.out.println("Cocoa" + ","+ inventory.get("Cocoa"));
+		System.out.println("Coffee" + ","+ inventory.get("Coffee"));
+		System.out.println("Cream" + ","+ inventory.get("Cream"));
+		System.out.println("Decaf Coffee" + ","+ inventory.get("Decaf Coffee"));
+		System.out.println("Expresso" + ","+ inventory.get("Expresso"));
+		System.out.println("Foamed Milk" + ","+ inventory.get("Foamed Milk"));
+		System.out.println("Steamed Milk" + ","+ inventory.get("Steamed Milk"));
+		System.out.println("Sugar" + ","+ inventory.get("Sugar"));
+		System.out.println("Whipped Cream" + ","+ inventory.get("Whipped Cream"));
+	}
+}

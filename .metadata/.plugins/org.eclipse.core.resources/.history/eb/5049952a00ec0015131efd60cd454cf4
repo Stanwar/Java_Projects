@@ -1,0 +1,77 @@
+package Beverages;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.TreeMap;
+/*
+ * Static Class to load details related to Inventory. 
+ * This class will also give current Inventory for each ingredient
+ * */
+public class InventoryManager {
+
+	// Only have one copy of the inventory
+	//TreeMap<K, V>
+	public static TreeMap<String, Integer> inventory = new TreeMap<String, Integer>();
+	public static HashMap<String, Boolean> ingredientStatus = new HashMap<String, Boolean>();
+
+	// Made constructor private
+	private InventoryManager(){
+		 
+	}
+	
+	//Update ingredient in inventory
+	public static void reduceIngredient(Ingredient ingredient){
+		int quantity = inventory.get(ingredient.name());
+		
+		if(quantity > 0){
+			inventory.put(ingredient.name(),inventory.get(ingredient.name())-1);
+		}else{
+			ingredientStatus.put(ingredient.name(), false);
+		}
+		
+	}
+	
+	//Stock/Restock
+	public static void loadInventory(){
+		inventory.put(new Cocoa().name(), 10);
+		inventory.put(new Coffee().name(), 10);
+		inventory.put(new Cream().name(), 10);
+		inventory.put(new DecafCoffee().name(), 10);
+		inventory.put(new Expresso().name(), 10);
+		inventory.put(new FoamedMilk().name(), 10);
+		inventory.put(new SteamedMilk().name(), 10);
+		inventory.put(new Sugar().name(), 10);
+		inventory.put(new WhippedCream().name(), 10);
+		
+		//////
+		ingredientStatus.put(new Cocoa().name(), true);
+		ingredientStatus.put(new Coffee().name(), true);
+		ingredientStatus.put(new Cream().name(), true);
+		ingredientStatus.put(new DecafCoffee().name(), true);
+		ingredientStatus.put(new Expresso().name(), true);
+		ingredientStatus.put(new FoamedMilk().name(), true);
+		ingredientStatus.put(new SteamedMilk().name(), true);
+		ingredientStatus.put(new Sugar().name(), true);
+		ingredientStatus.put(new WhippedCream().name(), true);
+		
+	}
+	// Display Ingredient Quantities
+	public static void ingredientList(){
+		System.out.println("Inventory:");
+		Arrays.sort(inventory);
+//		Collections.sort(inventory);
+//		for(int i=0;i<inventory.size();i++){
+//			System.out.println(new Cocoa().name() + ","+ inventory.get(new Cocoa().name()));
+//		}
+		
+		System.out.println(new Coffee().name() + ","+ inventory.get(new Coffee().name()));
+		System.out.println(new Cream().name() + ","+ inventory.get(new Cream().name()));
+		System.out.println(new DecafCoffee().name() + ","+ inventory.get(new DecafCoffee().name()));
+		System.out.println(new Expresso().name() + ","+ inventory.get(new Expresso().name()));
+		System.out.println(new FoamedMilk().name() + ","+ inventory.get(new FoamedMilk().name()));
+		System.out.println(new SteamedMilk().name() + ","+ inventory.get(new SteamedMilk().name()));
+		System.out.println(new Sugar().name() + ","+ inventory.get(new Sugar().name()));
+		System.out.println(new WhippedCream().name() + ","+ inventory.get(new WhippedCream().name()));
+	}
+}

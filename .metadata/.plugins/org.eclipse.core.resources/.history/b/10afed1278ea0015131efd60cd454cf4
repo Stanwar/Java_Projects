@@ -1,0 +1,22 @@
+package Beverages;
+
+public class DecafCoffee extends Coffees {
+	private int number = 10;
+	@Override
+	public float price(){
+		return 0.75f;
+	}
+	
+	@Override
+	public String name(){
+		return "Decaf Coffee";
+	}
+	@Override
+	public void setQuantity(int number){
+		this.number = number;
+	}
+	@Override
+	public int getQuantity(){
+		return number;
+	}
+}

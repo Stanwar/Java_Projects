@@ -1,0 +1,24 @@
+package Beverages;
+
+import java.util.HashMap;
+
+public class InventoryManager {
+
+	// Only have one copy of the inventory 
+	public static HashMap<String, Integer> inventory = new HashMap<String, Integer>();
+
+	// Made constructor private
+	private InventoryManager(){
+		 
+	}
+	
+	//Update ingredient in inventory
+	public static void reduceIngredient(Ingredient ingredient){
+		inventory.put(ingredient.name(),inventory.get(ingredient)-1);
+	}
+	
+	//Stock/Restock
+	public static void loadInventory(){
+		
+	}
+}

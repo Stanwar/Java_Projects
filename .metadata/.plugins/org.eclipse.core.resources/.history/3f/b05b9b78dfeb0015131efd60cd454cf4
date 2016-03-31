@@ -1,0 +1,21 @@
+package Beverages;
+
+public class FoamedMilk extends Condiments{
+	private int number;
+	@Override
+	public float price(){
+		return 0.35f;
+	}
+	@Override
+	public String name(){
+		return "Foamed Milk";
+	}
+	@Override
+	public void setQuantity(int number){
+		this.number = number;
+	}
+	@Override
+	public int getQuantity(){
+		return number;
+	}
+}

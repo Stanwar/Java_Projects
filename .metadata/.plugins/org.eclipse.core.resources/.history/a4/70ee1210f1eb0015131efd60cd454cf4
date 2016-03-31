@@ -1,0 +1,18 @@
+package Beverages;
+
+public class DrinkFactory {
+	public Drink prepareDrink(String type){
+		Drink drink = null;
+		
+//		if(type.equalsIgnoreCase("Coffee")){
+//			drink = 
+//		}else if(){
+//			
+//		}else if(){
+//			
+//		}else if(){
+//			
+//		}
+		return null;
+	}
+}

@@ -1,0 +1,11 @@
+package Beverages;
+
+public class CaffeeAmericano {
+	
+	public void prepareCaffeeAmericano(){
+		Drink drink = new Drink();
+		drink.addIngredient(new Expresso());
+		drink.addIngredient(new Expresso());
+		drink.addIngredient(new Expresso());
+	}
+}

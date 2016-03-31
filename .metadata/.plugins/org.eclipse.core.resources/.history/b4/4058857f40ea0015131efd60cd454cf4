@@ -1,0 +1,6 @@
+package Beverages;
+
+import 
+public class Coffee extends Drinks{
+
+}

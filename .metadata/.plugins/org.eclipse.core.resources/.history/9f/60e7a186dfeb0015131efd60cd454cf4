@@ -1,0 +1,22 @@
+package Beverages;
+
+public class WhippedCream extends Condiments{
+	private int number = 10;
+	@Override
+	public float price(){
+		return 1.00f;
+	}
+	
+	@Override
+	public String name(){
+		return "Whipped Cream";
+	}
+	@Override
+	public void setQuantity(int number){
+		this.number = number;
+	}
+	@Override
+	public int getQuantity(){
+		return number;
+	}
+}

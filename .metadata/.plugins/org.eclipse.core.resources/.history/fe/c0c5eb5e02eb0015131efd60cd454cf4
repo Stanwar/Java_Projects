@@ -1,0 +1,6 @@
+package Beverages;
+
+public abstract class Coffees implements Item{
+	@Override
+	public abstract float price();
+}

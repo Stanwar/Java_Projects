@@ -1,0 +1,205 @@
+package Beverages;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+
+public class DrinkMaker {
+	
+	// Make Enum for drinks 
+	public enum Drinks{
+		AMERICANO ("Caffe Americano"),
+		LATTE ("Caffe Latte"),
+		MOCHA ("Caffe Mocha"),
+		CAPPUCCINO ("Cappuccino"),
+		COFFEE ("Coffee"),
+		DECAF ("Decaf Coffee");
+		
+		private final String name;
+		Drinks(String name){
+			this.name = name;
+		}
+	}
+	//public static Hash
+	public static LinkedHashSet<String> drinks = new LinkedHashSet<String>();
+	//public static ArrayList<String> drinks = new ArrayList<String>();
+	public static HashMap<String,ArrayList<String>> drinkIngredient = new HashMap<String,ArrayList<String>>();
+
+	private DrinkMaker(){
+		
+	}
+	// Add Drinks and their ingredients for later use
+	public void addDrink(String name, String[] ingredientName){
+		
+		drinks.add(name);
+//		//drinks.add(name);
+//		
+		
+		for(String ingredient : ingredientName){
+			if(drinkIngredient.get(name) != null){
+				drinkIngredient.get(name).add(ingredient);
+			}else{
+				ArrayList<String> ar = new ArrayList<String>();
+				ar.add(ingredient);
+				drinkIngredient.put(name,ar);
+			}
+		}
+		
+		
+	}
+	
+	/// Initializing six Initial Drinks.
+	public static void initializeDrinks(){
+		
+		String[] americanoIngredients = {new Expresso().name(),new Expresso().name(),new Expresso().name()};
+		
+		addDrink(Drinks.AMERICANO.name, americanoIngredients );
+		//
+		///
+		String[] latteIngredients = {new Expresso().name(), new Expresso().name(),new SteamedMilk().name() };
+		addDrink(Drinks.LATTE.name, latteIngredients);
+		//
+		///
+		String[] mochaIngredients = { new Expresso().name(), new Cocoa().name(), new SteamedMilk().name(), new WhippedCream().name()};
+		addDrink(Drinks.MOCHA.name, mochaIngredients);
+		//
+		String[] cappuccinoIngredients = {new Expresso().name(), new Expresso().name(), new SteamedMilk().name(),new FoamedMilk().name()};
+		addDrink(Drinks.CAPPUCCINO.name,cappuccinoIngredients );
+		///
+		String[] coffeeIngredients = {new Coffee().name(), new Coffee().name(), new Coffee().name(),new Sugar().name(), new Cream().name() };
+		addDrink(Drinks.COFFEE.name, coffeeIngredients);
+		//
+		//
+		String[] decafIngredients = {new DecafCoffee().name(), new DecafCoffee().name(), new DecafCoffee().name(),new Sugar().name(), new Cream().name() };
+		addDrink(Drinks.DECAF.name, decafIngredients);
+		
+	}
+	// Build a Drink and get its attributes for example : Cost , etc
+	public Drink getDrink(String drinkName) throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException{
+		
+		Drink drink = new Drink();
+		
+		// Get Ingredient List for the Drink 
+		ArrayList<String> ingredients = drinkIngredient.get(drinkName);
+		
+		for(String ingredient : ingredients){
+			
+			if(InventoryManager.inventory.containsKey(ingredient)){
+				//System.out.println("ingredient name : " + ingredient);
+				ingredient = ingredient.replace(" ", "");
+				Class clazz = Class.forName("Beverages." + ingredient);
+				Ingredient c= (Ingredient) clazz.newInstance();
+				//System.out.println(c.name());
+				drink.addIngredient(c);
+				//Constructor<?> ctor = clazz.getConstructor(String.class);
+				//Object object = ctor.newInstance(new Object[] { ingredient });
+				
+				//System.out.println(clazz.getMethod("name", null));
+				
+				//System.out.println("Object");
+			}
+//			switch(ingredient){
+//				case Drinks.Ameri:
+//			}
+		}
+		// Based on Drink, Get Ingredients and Add each to list
+//		for(String ingredient : ingredients){
+//			if(ingredient.equalsIgnoreCase(new Cocoa().name())){
+//				drink.addIngredient(new Cocoa());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new Coffee().name())){
+//				drink.addIngredient(new Coffee());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new Cream().name())){
+//				drink.addIngredient(new Cream());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new DecafCoffee().name())){
+//				drink.addIngredient(new DecafCoffee());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new Expresso().name())){
+//				drink.addIngredient(new Expresso());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new FoamedMilk().name())){
+//				drink.addIngredient(new FoamedMilk());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new SteamedMilk().name())){
+//				drink.addIngredient(new SteamedMilk());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new Sugar().name())){
+//				drink.addIngredient(new Sugar());
+//				
+//			}else if(ingredient.equalsIgnoreCase(new WhippedCream().name())){
+//				drink.addIngredient(new WhippedCream());
+//				
+//			}
+//		}
+		return drink;
+	}
+	// Method to prepare any idea of drink
+	public static void prepareDrink(String drinkName){
+		
+		//Drink drink = new Drink();
+		
+		// Get Ingredient List for the Drink 
+		ArrayList<String> ingredients = drinkIngredient.get(drinkName);
+		
+		// Based on Drink, Get Ingredients and Add each to list
+		for(String ingredient : ingredients){
+			if(ingredient.equalsIgnoreCase(new Cocoa().name())){
+				InventoryManager.reduceIngredient(new Cocoa());
+				
+			}else if(ingredient.equalsIgnoreCase(new Coffee().name())){
+				InventoryManager.reduceIngredient(new DecafCoffee());
+				
+			}else if(ingredient.equalsIgnoreCase(new Cream().name())){
+				InventoryManager.reduceIngredient(new Cream());
+				
+			}else if(ingredient.equalsIgnoreCase(new DecafCoffee().name())){
+				InventoryManager.reduceIngredient(new DecafCoffee());
+				
+			}else if(ingredient.equalsIgnoreCase(new Expresso().name())){
+				InventoryManager.reduceIngredient(new Expresso());
+				
+			}else if(ingredient.equalsIgnoreCase(new FoamedMilk().name())){
+				InventoryManager.reduceIngredient(new FoamedMilk());
+				
+			}else if(ingredient.equalsIgnoreCase(new SteamedMilk().name())){
+				InventoryManager.reduceIngredient(new SteamedMilk());
+				
+			}else if(ingredient.equalsIgnoreCase(new Sugar().name())){
+				InventoryManager.reduceIngredient(new Sugar());
+				
+			}else if(ingredient.equalsIgnoreCase(new WhippedCream().name())){
+				InventoryManager.reduceIngredient(new WhippedCream());
+			}
+		}
+		//return drink;
+	}
+	
+	public boolean getDrinkStatus (String drinkName){
+		ArrayList<String> drinkIngredients = drinkIngredient.get(drinkName);
+		
+		HashMap<String, Integer> ingredientCount = new HashMap<String, Integer>();
+		
+		// Get all the counts of ingredients needed 
+		for(String ingredient :drinkIngredients){
+			if(ingredientCount.get(ingredient) != null){
+				ingredientCount.put(ingredient, ingredientCount.get(ingredient) + 1);
+			}else{
+				ingredientCount.put(ingredient, 1);
+			}
+		}
+		
+		// If inventory count is less than required count, return false
+		for(String ingredient :drinkIngredients){
+			if(InventoryManager.inventory.get(ingredient)< ingredientCount.get(ingredient)){
+				return false;
+			}
+		}
+		return true;
+	}	
+}
